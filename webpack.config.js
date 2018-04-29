@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const development = process.env.NODE_ENV === 'development';
@@ -46,13 +47,17 @@ module.exports = {
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('development')
 		}),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new HtmlWebpackPlugin({
+			title: 'Movies DB',
+			template: './public/index.html',
+		}),
 	],
 	devServer: {
 		contentBase: path.resolve(__dirname, 'public'),
 		host: 'localhost',
 		port: 3000,
-		hot: true,
+		// hot: true,
 		open: true
 	}
 };

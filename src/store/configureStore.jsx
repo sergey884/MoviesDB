@@ -2,9 +2,10 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from '../reducers';
 
-import sagas from "../sagas";
+import rootSaga from "../sagas";
 
 const development = process.env.NODE_ENV === 'development';
 const sagaMiddleware = createSagaMiddleware();
@@ -19,10 +20,12 @@ if ( development ) {
 const configureStore = () => {
 	const store = createStore(
 					rootReducer,
-					applyMiddleware(...middleware)
+					composeWithDevTools(
+						applyMiddleware(...middleware)
+					)
 				);
 
-	sagaMiddleware.run( sagas );
+	sagaMiddleware.run(rootSaga);
 
 	return store;
 }

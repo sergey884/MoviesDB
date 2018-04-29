@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { AppContainer } from "react-hot-loader";
 
-import Quiz from "./containers/Quiz";
+import App from "./containers/App";
 import configureStore from "./store/configureStore";
 
 const store = configureStore();
@@ -19,12 +19,12 @@ const rnd = Component => {
 	);
 };
 
-rnd(Quiz);
+rnd(App);
 
 
 if (module.hot) {
-	module.hot.accept("./containers/Quiz", () => {
+	module.hot.accept("./containers/App", () => {
 		console.log("rnd hot");
-		rnd(Quiz);
+		rnd(App);
 	});
 }
