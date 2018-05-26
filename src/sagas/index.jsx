@@ -3,16 +3,16 @@ import { GET_FILMS_START } from '../constants';
 import { getAllFilmsApi, getFilmsSuccess } from '../actions';
 
 export function* getFilms() {
-	const allFilms = yield call(getAllFilmsApi);
-	yield put(getFilmsSuccess(allFilms));
+  const allFilms = yield call(getAllFilmsApi);
+  yield put(getFilmsSuccess(allFilms));
 }
 
 export function* watchFilms() {
-	yield takeLatest(GET_FILMS_START, getFilms);
+  yield takeLatest(GET_FILMS_START, getFilms);
 }
 
 export default function* rootSaga() {
-	yield all([
-		watchFilms(),
-	]);
+  yield all([
+    watchFilms(),
+  ]);
 }

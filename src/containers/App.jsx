@@ -1,18 +1,16 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getFilmsStart } from '../actions';
-import App from '../components/App';
+import { getFilmsStart } from '<actions>';
+import App from '<components>/App';
 
-/*
 const mapStateToProps = state => ({
-  
+  moviesList: state.movies.moviesList,
 });
-*/
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    getFilmsStart
+    getFilmsStart,
   }, dispatch)
 );
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

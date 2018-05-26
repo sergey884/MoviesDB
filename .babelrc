@@ -14,7 +14,8 @@
                 "<reducers>": "./src/reducers",
                 "<actions>": "./src/actions",
                 "<constants>": "./src/constants",
-                "<sagas>": "./src/sagas"
+                "<sagas>": "./src/sagas",
+                "<styles>": "./src/styles"
             }
         }]
     ]
