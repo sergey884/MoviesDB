@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import '<styles>/movie.scss';
 
 export default class MoviesItem extends Component {
   render() {
@@ -7,10 +9,17 @@ export default class MoviesItem extends Component {
     const {
       poster_path,
       title,
+      id,
     } = item;
+
     return (
       <div className="movie">
-        <img src={poster_path} alt={title} />
+        <img className="movie__poster" src={poster_path} alt={title} />
+        <Link to={{
+          pathname: `/film/${id}`,
+          state: item,
+        }}>{title}
+        </Link>
       </div>
     );
   }

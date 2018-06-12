@@ -47,6 +47,12 @@ module.exports = {
           publicPath: '/',
         }),
       },
+      {
+        test: /\.(jpg|gif)$/,
+        use: {
+          loader: 'file-loader',
+        },
+      },
     ],
   },
   resolve: {

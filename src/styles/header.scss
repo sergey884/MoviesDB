@@ -1,0 +1,18 @@
+.header {
+    background-image: url("/images/netflix.jpg");
+    background-size: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header__text {
+    width: 1000px;
+    color: #f35367;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}

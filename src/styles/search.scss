@@ -1,4 +1,70 @@
 .searchBlock {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 1000px;    
+    height: 120px;
+}
+
+.searchBlock__text {
+    height: 40px;
+    background-color: #080808;
+    opacity: 0.8;
+    border-bottom-width: 4px;
+    border-bottom-color: #f35367;
+    border-top-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    color: white;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.searchBlock__label {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.searchBlock__buttons__text {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 15px;
+}
+
+.searchBlock__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.searchBlock__button {
+    color: white;
+    font-size: 20px;
+    width: 200px;
+    height: 40px;
+    background-color: #f35367;
+    border: none;
     margin-top: 10px;
-    margin-left: 10px;
+    cursor: pointer;
+}
+
+.searchBlock__button-title {
+    @extend .searchBlock__button;
+    width: 60px;
+    height: 20px;
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.searchBlock__button-genre {
+    @extend .searchBlock__button;
+    width: 60px;
+    height: 20px;
+    font-size: 10px;
+    background-color: #927e80;
 }

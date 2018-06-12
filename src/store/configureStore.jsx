@@ -10,24 +10,24 @@ import rootSaga from "<sagas>";
 const development = process.env.NODE_ENV === 'development';
 const sagaMiddleware = createSagaMiddleware();
 
-const middleware = [ thunk, sagaMiddleware ];
+const middleware = [thunk, sagaMiddleware];
 
-if ( development ) {
-	const logger = createLogger();
-	middleware.push( logger );
+if (development) {
+  const logger = createLogger();
+  middleware.push(logger);
 }
 
 const configureStore = () => {
-	const store = createStore(
-					rootReducer,
-					composeWithDevTools(
-						applyMiddleware(...middleware)
-					)
-				);
+  const store = createStore(
+    rootReducer,
+    composeWithDevTools(
+      applyMiddleware(...middleware)
+    )
+  );
 
-	sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
 
-	return store;
-}
+  return store;
+};
 
 export default configureStore;

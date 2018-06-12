@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Search from '<components>/Search';
 import Movies from '<components>/Movies';
+import Header from '<components>/Header';
 
 export default class App extends Component {
   static propTypes = {
@@ -16,19 +16,16 @@ export default class App extends Component {
 
   render() {
     const { moviesList } = this.props;
-    console.log('App - moviesList', moviesList);
 
     return (
       <Fragment>
-        <header>
-          <Search />
-        </header>
+        <Header />
         <section>
           {moviesList &&
             <Movies moviesList={moviesList} />
           }
         </section>
-        <footer>Hello1 from MoviesDB FOOTER!</footer>
+        <footer>MoviesDB FOOTER!</footer>
       </Fragment>
     );
   }
