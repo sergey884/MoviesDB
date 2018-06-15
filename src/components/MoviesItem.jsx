@@ -1,25 +1,47 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import '<styles>/movie.scss';
+import '<styles>/moviesItem.scss';
 
 export default class MoviesItem extends Component {
+  static propTypes = {
+    item: PropTypes.shape({
+      poster_path: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  };
+
+  prepareGenres = genres => genres.join(' & ');
+
   render() {
-    console.log('NotFound');
     const { item } = this.props;
     const {
       poster_path,
       title,
       id,
+      release_date,
+      genres,
     } = item;
-
+    const date = release_date ? moment(release_date, 'YYYY-MM-DD').get('year') : null;
     return (
-      <div className="movie">
-        <img className="movie__poster" src={poster_path} alt={title} />
-        <Link to={{
-          pathname: `/film/${id}`,
-          state: item,
-        }}>{title}
-        </Link>
+      <div className="moviesItem">
+        <img className="moviesItem__poster" src={poster_path} alt={title} />
+        <div className="moviesItem__description">
+          <Link
+            to={{
+              pathname: `/film/${id}`,
+              state: item,
+            }}
+            className="moviesItem__title"
+          >
+            {title}
+          </Link>
+          <div className="moviesItem__date">{date}</div>
+        </div>
+        <div className="moviesItem__genre">
+          {this.prepareGenres(genres)}
+        </div>
       </div>
     );
   }

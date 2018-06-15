@@ -31,11 +31,11 @@ const movies = (state = initialState, action) => {
       const { payload: { data } } = action;
       const filmRegExp = new RegExp(state.searchText, 'i');
       const films = _.filter(data, film => filmRegExp.test(film.title));
-      console.log('films', films);
+
       return {
         ...state,
         moviesList: films,
-      }; 
+      };
     }
     default: return state;
   }

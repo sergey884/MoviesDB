@@ -35,7 +35,7 @@ export default class Search extends Component {
       location,
       searchText,
     } = this.props;
-    console.log('Search---Search----Search', location);
+
     return (
       <form className="searchBlock">
         <label

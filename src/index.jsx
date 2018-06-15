@@ -38,7 +38,6 @@ rnd(App);
 
 if (module.hot) {
   module.hot.accept('./containers/App', () => {
-    console.log('rnd hot');
     rnd(App);
   });
 }

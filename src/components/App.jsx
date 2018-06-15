@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Movies from '<components>/Movies';
 import Header from '<components>/Header';
+import Footer from '<components>/Footer';
+import '<styles>/app.scss';
 
 export default class App extends Component {
   static propTypes = {
@@ -10,7 +12,7 @@ export default class App extends Component {
 
   componentDidMount() {
     const { getFilmsStart } = this.props;
-    console.log('getFilmsStart', getFilmsStart);
+
     getFilmsStart();
   }
 
@@ -20,12 +22,12 @@ export default class App extends Component {
     return (
       <Fragment>
         <Header />
-        <section>
+        <section className="app__section">
           {moviesList &&
             <Movies moviesList={moviesList} />
           }
         </section>
-        <footer>MoviesDB FOOTER!</footer>
+        <Footer />
       </Fragment>
     );
   }
